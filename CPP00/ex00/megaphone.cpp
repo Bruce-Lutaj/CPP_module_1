@@ -1,4 +1,2 @@
-// test
-
 #include <iostream>
 
