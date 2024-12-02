@@ -12,7 +12,7 @@ int main(int ac, char **av)
     {
         std::string tmp = av[i];
         for (size_t j = 0; j < tmp.size(); j++)
-            tmp[j] = std::toupper(tmp[j]);
+            tmp[j] = std::toupper(static_cast<unsigned char>(tmp[j]));
         std::cout << tmp << " ";
     }
     std::cout << std::endl;
