@@ -6,7 +6,8 @@ FLAGS = -Wall -Wextra -Werror -g -I$(HEADERS) -std=c++98
 
 RM = rm -f
 
-SRC = 	Contact.cpp \
+SRC = 	main.cpp \
+		Contact.cpp
 		
 		
 all: $(NAME)
