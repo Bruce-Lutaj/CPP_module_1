@@ -4,6 +4,7 @@
 
 Contact::Contact()
 {
+    index = 0;
     for(int i = 0; i < 5; i++)
         str[i] = "";
 }
@@ -12,6 +13,12 @@ void Contact::setData(const std::string& data, size_t j)
 {
     str[j] = data;
 }
+
+void Contact::setIndex(size_t i)
+{
+    index = i;
+}
+
 
 void Contact::displayData() const
 {

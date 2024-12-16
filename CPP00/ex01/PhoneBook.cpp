@@ -3,7 +3,7 @@
 
 PhoneBook::PhoneBook()
 {
-    index = 0;
+    i = 0;
 }
 
 void PhoneBook::Add()
@@ -11,13 +11,19 @@ void PhoneBook::Add()
     std::string data;
     std::string domain[5] = {"Name: ", "Lastname: ", "Nickname: ", "Number: ", "Secret: "};
     
-    if (index == 8)
-        index = 0;
+    if (i == 8)
+        i = 0;
+    contact[i].setIndex(i);
     for (size_t j = 0; j < 5; j++)
     {
         std::cout << domain[j];
         std::getline(std::cin, data);
-        contact[index].setData(data, j);
+        contact[i].setData(data, j);
     }
-    index++;
+    i++;
+}
+
+void PhoneBook::Search()
+{
+    
 }

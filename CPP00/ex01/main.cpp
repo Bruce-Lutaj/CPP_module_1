@@ -10,6 +10,8 @@ int main()
         std::getline(std::cin, input);
         if (input == "ADD")
             obj.Add();
+        if (input == "SEARCH")
+            obj.Search();
     }
     return 0;
 }

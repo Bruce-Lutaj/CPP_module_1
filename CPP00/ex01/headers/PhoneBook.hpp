@@ -7,11 +7,11 @@ class PhoneBook
 {
     private:
         Contact contact[8];
-        size_t  index;
+        size_t  i;
     public:
         PhoneBook();
         void Add();
-//         void Search();
+        void Search();
 //         void Exit();
 };
 
