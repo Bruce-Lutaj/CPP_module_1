@@ -9,9 +9,10 @@ class PhoneBook
         Contact contact[8];
         size_t  i;
     public:
-        void Add();
-        void Search();
-        void Exit();
+        PhoneBook();
+//         void Add();
+//         void Search();
+//         void Exit();
 };
 
 

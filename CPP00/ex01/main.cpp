@@ -1,8 +1,12 @@
-#include "headers/Contact.hpp"
+#include "headers/PhoneBook.hpp"
 
 int main()
 {
-    Contact obj;
-    obj.displayData();
+    PhoneBook obj;
+    std::cout << "Welcome to the PhoneBook\n" << "To use type: ADD, SEARCH, EXIT";
+    while (1)
+    {
+        
+    }
     return 0;
 }
