@@ -1,6 +1,7 @@
 #ifndef CONTACT_HPP
 #define CONTACT_HPP
 
+#include <cstddef>
 #include <string>
 #include <iostream>
 
@@ -10,9 +11,7 @@ class Contact
         std::string str[5];
     public:
         Contact();
-        void setData(const std::string& name, const std::string& lastname, 
-                    const std::string& nickname, const std::string& number,
-                    const std::string& secret);
+        void setData(const std::string& data, size_t j);
         void displayData() const;
 };
 
