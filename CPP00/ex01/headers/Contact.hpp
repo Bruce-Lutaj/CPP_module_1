@@ -4,6 +4,10 @@
 #include <cstddef>
 #include <string>
 #include <iostream>
+#include <cstring>
+#include <iomanip>
+
+#define MaxLen 10
 
 class Contact
 {
