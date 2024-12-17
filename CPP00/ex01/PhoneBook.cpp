@@ -9,7 +9,7 @@ PhoneBook::PhoneBook()
 void PhoneBook::Add()
 {
     std::string data;
-    std::string domain[5] = {"Name: ", "Lastname: ", "Nickname: ", "Number: ", "Secret: "};
+    std::string domain[5] = {"Name: ", "Lastname: ", "Nickname: ", "Number: ", "Darkest Secret: "};
     
     if (i == 8)
         i = 0;
