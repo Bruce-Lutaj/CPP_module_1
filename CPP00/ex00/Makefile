@@ -14,3 +14,5 @@ $(NAME): $(SRC)
 
 fclean: 
 	$(RM) $(NAME)
+
+re: fclean all

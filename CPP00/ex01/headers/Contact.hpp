@@ -6,6 +6,7 @@
 #include <iostream>
 #include <cstring>
 #include <iomanip>
+#include <cstdlib>
 
 #define MaxLen 10
 
@@ -19,7 +20,7 @@ class Contact
         void setData(const std::string& data, size_t j);
         void setIndex(size_t i);
         void displayData() const;
-        void displayContact() const;
+        void displayContact(size_t i) const;
 };
 
 #endif
