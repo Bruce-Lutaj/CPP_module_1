@@ -3,6 +3,8 @@
 
 #define MaxContact 8
 
+#define NUMBERS 0
+
 #include "Contact.hpp"
 
 class PhoneBook

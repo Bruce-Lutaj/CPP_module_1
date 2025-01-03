@@ -1,6 +1,37 @@
 #include "headers/PhoneBook.hpp"
+#include <cctype>
 #include <ostream>
 #include <string>
+
+
+
+bool Is_Valid(std::string data, int type)
+{
+    bool alpha = false;
+    
+    if (data.empty())
+        return false;
+    if (type == NUMBERS)
+    {
+        for (int i = 0; i < data.size(); i++)
+        {
+            if(!std::isdigit(data[i]))
+                return false;
+        }
+        return true;
+    }
+    else
+    {
+        for (int i = 0; i < data.size(); i++)
+        {
+            if (std::isalpha(data[i]))
+                alpha = true;
+            else if (!std::isspace(data[i]))
+                return false;
+        }
+    }
+    return alpha;
+}
 
 PhoneBook::PhoneBook()
 {
@@ -21,7 +52,8 @@ int PhoneBook::Add()
         std::getline(std::cin, data);
         if (domain[j] == "Number: ")
         {
-            if (data.)
+            if (!Is_Valid(data, NUMBERS))
+                return std::cout << "Invalid input" << std::endl, -1;
         }
         contact[index].setData(data, j);
     }
