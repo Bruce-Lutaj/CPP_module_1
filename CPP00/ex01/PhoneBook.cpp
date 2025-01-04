@@ -1,5 +1,6 @@
 #include "headers/PhoneBook.hpp"
 #include <cctype>
+#include <cstddef>
 #include <ostream>
 #include <string>
 
@@ -7,30 +8,31 @@
 
 bool Is_Valid(std::string data, int type)
 {
-    bool alpha = false;
+    bool valid = false;
     
     if (data.empty())
         return false;
     if (type == NUMBERS)
     {
-        for (int i = 0; i < data.size(); i++)
+        for (size_t i = 0; i < data.size(); i++)
         {
-            if(!std::isdigit(data[i]))
-                return false;
-        }
-        return true;
-    }
-    else
-    {
-        for (int i = 0; i < data.size(); i++)
-        {
-            if (std::isalpha(data[i]))
-                alpha = true;
+            if(std::isdigit(data[i]))
+                valid = true;
             else if (!std::isspace(data[i]))
                 return false;
         }
     }
-    return alpha;
+    else
+    {
+        for (size_t i = 0; i < data.size(); i++)
+        {
+            if (std::isalpha(data[i]))
+                valid = true;
+            else if (!std::isspace(data[i]))
+                return false;
+        }
+    }
+    return valid;
 }
 
 PhoneBook::PhoneBook()
@@ -48,12 +50,27 @@ int PhoneBook::Add()
     contact[index].setIndex(index);
     for (size_t j = 0; j < 5; j++)
     {
-        std::cout << domain[j];
-        std::getline(std::cin, data);
-        if (domain[j] == "Number: ")
+        while (1)
         {
-            if (!Is_Valid(data, NUMBERS))
-                return std::cout << "Invalid input" << std::endl, -1;
+            std::cout << domain[j];
+            std::getline(std::cin, data);
+            if (domain[j] == "Number: ")
+            {
+                if (!Is_Valid(data, NUMBERS))
+                {
+                    std::cout << "Invalid input" << std::endl;
+                    continue ;
+                }
+            }
+            else 
+            {
+                if (!Is_Valid(data, LETTERS))
+                {
+                    std::cout << "Invalid input" << std::endl;
+                    continue ;            
+                }
+            }
+            break ;
         }
         contact[index].setData(data, j);
     }
@@ -73,6 +90,7 @@ long PhoneBook::Search()
     std::cout << std::endl << "--------------------------------------------" << std::endl;
     for (size_t i = 0; i < MaxContact; i++)
         contact[i].displayContact(i);
+    std::cout << "--------------------------------------------" << std::endl;
     std::cout << "Insert index for more detail: ";
     std::getline(std::cin, input);
     if (input == "\0")

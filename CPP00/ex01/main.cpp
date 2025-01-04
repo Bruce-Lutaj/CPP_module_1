@@ -10,18 +10,35 @@ int main()
     while (1)
     {
         std::cout << "To use type: | ADD - SEARCH - EXIT |" << std::endl;
-        std::getline(std::cin, input);
+        if (!std::getline(std::cin, input))
+            break ;
         if (input == "ADD")
-            obj.Add();
+        {
+            if(obj.Add() == -1)
+            {
+                if (!std::cin)
+                    break;
+                continue;
+            }
+        }
         if (input == "SEARCH")
         {
             n = obj.Search();
             if (n == -1)
-                return 1;
+            {
+                if (!std::cin)
+                    break ;
+                continue;
+            }
             obj.Show_Contact(n);
         }
-        if (input == "EXIT")
+        else if (input == "EXIT")
             break ;
+        else
+        {
+            std::cout << "Invalid input" << std::endl;
+            continue;
+        }
     }
     return 0;
 }

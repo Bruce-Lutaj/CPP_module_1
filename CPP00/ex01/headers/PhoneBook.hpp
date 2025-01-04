@@ -4,6 +4,7 @@
 #define MaxContact 8
 
 #define NUMBERS 0
+#define LETTERS 1
 
 #include "Contact.hpp"
 
@@ -17,7 +18,6 @@ class PhoneBook
         int     Add();
         long    Search();
         void    Show_Contact(long n);
-//      int Exit();
 };
 
 
