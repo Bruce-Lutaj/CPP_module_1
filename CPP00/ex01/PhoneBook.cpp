@@ -53,7 +53,8 @@ int PhoneBook::Add()
         while (1)
         {
             std::cout << domain[j];
-            std::getline(std::cin, data);
+            if(!std::getline(std::cin, data))
+                return -1;
             if (domain[j] == "Number: ")
             {
                 if (!Is_Valid(data, NUMBERS))
