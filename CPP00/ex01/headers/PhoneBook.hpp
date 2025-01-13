@@ -8,7 +8,9 @@
 
 #include "Contact.hpp"
 
-class PhoneBook
+bool    Is_Valid(std::string data, int type);
+
+class   PhoneBook
 {
     private:
         Contact contact[MaxContact];
