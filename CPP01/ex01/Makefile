@@ -8,8 +8,7 @@ RM = rm -f
 
 SRC = 	main.cpp \
 		Zombie.cpp \
-		newZombie.cpp \
-		randomChump.cpp
+		zombieHorde.cpp
 		
 		
 all: $(NAME)
