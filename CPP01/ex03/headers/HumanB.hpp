@@ -3,13 +3,14 @@
 
 #include "Weapon.hpp"
 
-class HumanA
+class HumanB
 {
     private:
         Weapon      weapon;
         std::string name;
     public:
-        HumanA(std::string str, Weapon obj);
+        HumanB(std::string str);
+        void setWeapon(const Weapon &obj);
         void attack();
 };
 
