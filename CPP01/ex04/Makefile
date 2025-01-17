@@ -1,16 +1,12 @@
 NAME = Exec
 
 CC = c++
-HEADERS = headers
-FLAGS = -Wall -Wextra -Werror -g -I$(HEADERS) -std=c++98
+FLAGS = -Wall -Wextra -Werror -std=c++98
 
 RM = rm -f
 
-SRC = 	main.cpp \
-		Weapon.cpp \
-		HumanA.cpp \
-		HumanB.cpp
-		
+SRC = main.cpp
+
 all: $(NAME)
 
 $(NAME): $(SRC)
