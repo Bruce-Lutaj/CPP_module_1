@@ -1,12 +1,13 @@
 NAME = Harl
 
 CC = c++
-FLAGS = -Wall -Wextra -Werror -std=c++98 -g
+HEADERS = headers
+FLAGS = -Wall -Wextra -Werror -I$(HEADERS) -std=c++98 -g
 
 RM = rm -f
 
 SRC = main.cpp \
-	  replace.cpp
+	  Harl.cpp
 
 all: $(NAME)
 
