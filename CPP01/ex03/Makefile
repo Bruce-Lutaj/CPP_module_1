@@ -1,4 +1,4 @@
-NAME = Exec
+NAME = Exe
 
 CC = c++
 HEADERS = headers

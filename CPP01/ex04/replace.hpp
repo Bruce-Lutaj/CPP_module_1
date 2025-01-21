@@ -6,6 +6,6 @@
 #include <string>
 #include <cstring>
 
-std::string replace(std::string *line, std::string to_replace, std::string replace_with);
+std::string replace(std::string line, std::string to_replace, std::string replace_with);
 
 #endif

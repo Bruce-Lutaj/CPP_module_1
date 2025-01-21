@@ -1,4 +1,4 @@
-NAME = Exec
+NAME = zombie
 
 CC = c++
 HEADERS = headers

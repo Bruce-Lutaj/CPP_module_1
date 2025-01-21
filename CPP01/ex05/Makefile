@@ -1,4 +1,4 @@
-NAME = replace
+NAME = Harl
 
 CC = c++
 FLAGS = -Wall -Wextra -Werror -std=c++98 -g

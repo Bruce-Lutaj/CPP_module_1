@@ -1,4 +1,4 @@
-NAME = bank_system
+NAME = account
 
 CC = c++
 HEADERS = Account.hpp

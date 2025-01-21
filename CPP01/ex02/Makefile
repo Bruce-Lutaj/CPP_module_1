@@ -1,4 +1,4 @@
-NAME = Exec
+NAME = Exe
 
 CC = c++
 FLAGS = -Wall -Wextra -Werror -g -std=c++98
