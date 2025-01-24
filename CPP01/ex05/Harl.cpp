@@ -24,9 +24,16 @@ void Harl::error(void)
 
 void Harl::complain(std::string level)
 {
-    if (level == "")
-        return ;
-    for (size_t i = 0; i < level.size(); i++)
-        level[i] = std::tolower(static_cast<unsigned char>(level[i]));
-    switch (level == )
+    void (Harl::*ptr_to_f[4])(void) = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
+    std::string array[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
+
+    for (int i = 0; i < 4; i++)
+    {
+        if (array[i] == level)
+        {
+            (this->*(ptr_to_f[i]))();
+            return ;
+        }
+    }
+    std::cout << "Useless complain" << std::endl;
 }
