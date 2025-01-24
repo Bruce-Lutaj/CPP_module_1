@@ -1,6 +1,4 @@
 #include "headers/Harl.hpp"
-#include <algorithm>
-#include <cctype>
 
 void Harl::debug(void)
 {
