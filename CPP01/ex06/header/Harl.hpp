@@ -16,7 +16,6 @@ class Harl
         void warning(void);
         void error(void);
     public:
-        int Int_Conversion(const std::string &level);
         void complain(std::string level);
 };
 

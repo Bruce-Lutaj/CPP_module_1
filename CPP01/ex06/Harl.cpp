@@ -1,14 +1,5 @@
 #include "header/Harl.hpp"
 
-int Harl::Int_Conversion(const std::string &level)
-{
-    if (level == "DEBUG") return 1;
-    if (level == "INFO") return 2;
-    if (level == "WARNING") return 3;
-    if (level == "ERROR") return 4;
-    return -1;
-}
-
 void Harl::debug(void)
 {
     std::cout << "[ DEBUG ]" << std::endl;
@@ -35,19 +26,43 @@ void Harl::error(void)
 
 void Harl::complain(std::string level)
 {
-    switch (Int_Conversion(level))
+    void (Harl::*ptr_to_f[4])(void) = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
+    std::string array[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
+    int i = 0;
+    do
     {
+        if (array[i] == level)
+        {
+            break;
+        }
+        i++;
+    } while (i < 4);
+
+    switch (i)
+    {
+        case 0:
+            for (; i < 4; i++)
+            {
+                (this->*ptr_to_f[i])();
+            }
+            break;
         case 1:
-            debug();
+            for (; i < 4; i++)
+            {
+                (this->*ptr_to_f[i])();
+            }
             break;
         case 2:
-            info();
+            for (; i < 4; i++)
+            {
+                (this->*ptr_to_f[i])();
+            }
             break;
         case 3:
-            warning();
-            break;
-        case 4:
-            error();
+            for (; i < 4; i++)
+            {
+                (this->*ptr_to_f[i])();
+            }
             break;
         default:
             std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
