@@ -7,7 +7,13 @@ int main(void)
     std::string *stringPTR = &str;
     std::string &stringREF = str;    
     
+    std::cout << "Address of the string" << std::endl;
     std::cout << &str << std::endl;
     std::cout << stringPTR << std::endl;
-    std::cout << &stringREF << std::endl;    
+    std::cout << &stringREF << std::endl;
+
+    std::cout << std::endl << "Value of the string" << std::endl;
+    std::cout << str << std::endl;
+    std::cout << *stringPTR << std::endl;
+    std::cout << stringREF << std::endl;  
 }

@@ -14,7 +14,9 @@ all: $(NAME)
 $(NAME): $(SRC)
 	$(CC) $(FLAGS) $(SRC) -o $(NAME)
 
-fclean: 
+clean:
 	$(RM) $(NAME)
+
+fclean: clean
 
 re: fclean all

@@ -1,5 +1,4 @@
-#include "headers/Zombie.hpp"
-#include "headers/Zombie.h"
+#include "header/Zombie.hpp"
 
 int main(void)
 {

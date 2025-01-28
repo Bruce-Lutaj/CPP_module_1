@@ -21,7 +21,7 @@ int main()
                 continue;
             }
         }
-        if (input == "SEARCH")
+        else if (input == "SEARCH")
         {
             n = obj.Search();
             if (n == -1)

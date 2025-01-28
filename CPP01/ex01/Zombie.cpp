@@ -1,4 +1,4 @@
-#include "headers/Zombie.hpp"
+#include "header/Zombie.hpp"
 
 void    Zombie::giveName(std::string str)
 {

@@ -1,7 +1,7 @@
 NAME = zombie
 
 CC = c++
-HEADERS = headers
+HEADERS = header
 FLAGS = -Wall -Wextra -Werror -g -I$(HEADERS) -std=c++98
 
 RM = rm -f
@@ -16,7 +16,9 @@ all: $(NAME)
 $(NAME): $(SRC)
 	$(CC) $(FLAGS) $(SRC) -o $(NAME)
 
-fclean: 
+clean:
 	$(RM) $(NAME)
+
+fclean: clean
 
 re: fclean all
