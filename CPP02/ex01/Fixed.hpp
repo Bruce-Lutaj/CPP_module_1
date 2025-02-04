@@ -7,6 +7,8 @@
 #include <cstring>
 #include <iomanip>
 #include <cstdlib>
+#include <ostream>
+#include <cmath>
 
 class Fixed
 {
@@ -15,11 +17,18 @@ class Fixed
         static const int    fractionalBits = 8;
     public:
         Fixed();
+        Fixed(const int n);
+        Fixed(const float fn);
         Fixed(const Fixed &obj);
         Fixed& operator=(const Fixed& obj);
         ~Fixed();
         int     getRawBits(void) const;
         void    setRawBits(int const raw);
+        float   toFloat(void) const;
+        int     toInt(void) const;
+        
 };
+
+std::ostream& operator<<(std::ostream& os, const Fixed& Fixed);
 
 #endif
