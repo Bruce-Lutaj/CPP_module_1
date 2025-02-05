@@ -1,4 +1,5 @@
 #include "Fixed.hpp"
+#include <mutex>
 
 //Overload functions
 
@@ -6,6 +7,67 @@ std::ostream& operator<<(std::ostream& os, const Fixed& Fixed)
 {
     os << Fixed.toFloat();
     return os;
+}
+
+Fixed&  Fixed::operator++()
+{
+    this->fixedPoint++;
+    return *this;
+}
+
+Fixed&  Fixed::operator--()
+{
+    this->fixedPoint--;
+    return *this;
+}
+
+Fixed   Fixed::operator++(int)
+{
+    Fixed tmp = *this;
+    this->fixedPoint++;
+    return tmp;
+}
+
+Fixed   Fixed::operator--(int)
+{
+    Fixed tmp = *this;
+    this->fixedPoint--;
+    return tmp;
+}
+
+Fixed& Fixed::min(Fixed& obj1,Fixed& obj2)
+{
+    if (obj1.getRawBits() < obj2.getRawBits())
+    {
+        return obj1;
+    }
+    return obj2;
+}
+const Fixed& Fixed::min(const Fixed& obj1,const Fixed& obj2)
+{
+    if (obj1.getRawBits() < obj2.getRawBits())
+    {
+        return obj1;
+    }
+    return obj2;
+}
+
+Fixed& Fixed::max(Fixed& obj1,Fixed& obj2)
+{
+    if (obj1.getRawBits() < obj2.getRawBits())
+    {
+        return obj2;
+    }
+    return obj1;
+}
+
+const Fixed& Fixed::max(const Fixed& obj1,const Fixed& obj2)
+{
+    if (obj1.getRawBits() < obj2.getRawBits())
+    {
+        return obj2;
+    }
+    return obj1;
 }
 
 bool Fixed::operator>(const Fixed& other) const
