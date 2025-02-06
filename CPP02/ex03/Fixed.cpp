@@ -1,5 +1,4 @@
-#include "Fixed.hpp"
-#include <mutex>
+#include "headers/Fixed.hpp"
 
 //Overload functions
 
@@ -125,19 +124,16 @@ Fixed Fixed::operator/(const Fixed& other) const
 Fixed::Fixed()
 {
     this->fixedPoint = 0;
-    std::cout << "Default constructor called" << std::endl;
 }
 
 Fixed::Fixed(const int n)
 {
     this->fixedPoint = n << fractionalBits;
-    std::cout << "Int constructor called" << std::endl;
 }
 
 Fixed::Fixed(const float fn)
 {
     this->fixedPoint = roundf(fn * (1 << fractionalBits));
-    std::cout << "Float constructor called" << std::endl;
 }
 
 Fixed& Fixed::operator=(const Fixed &obj)
@@ -145,7 +141,6 @@ Fixed& Fixed::operator=(const Fixed &obj)
     if (this == &obj)
         return *this;
     this->fixedPoint = obj.fixedPoint;
-    std::cout << "Copy assignment operator called" << std::endl;
     return *this;
 }
 
@@ -153,17 +148,14 @@ Fixed& Fixed::operator=(const Fixed &obj)
 Fixed::Fixed(const Fixed &obj)
 {
     *this = obj;
-    std::cout << "Copy constructor called" << std::endl;
 }
 
 Fixed::~Fixed()
 {
-    std::cout << "Destructor called" << std::endl;
 }
 
 int     Fixed::getRawBits(void) const
 {
-    std::cout << "getRawBits member function called" << std::endl;
     return this->fixedPoint;
 }
 

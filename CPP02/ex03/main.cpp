@@ -1,17 +1,19 @@
-#include "Fixed.hpp"
+#include "headers/Fixed.hpp"
+#include "headers/Point.hpp"
 
 int main()
 {
-    Fixed       a;
-    Fixed       b(Fixed(5.05f) * Fixed(2));
-
-    std::cout << a << std::endl;
-    std::cout << ++a << std::endl;
-    std::cout << a << std::endl;
-    std::cout << a++ << std::endl;
-    std::cout << a << std::endl;
-
-    std::cout << b << std::endl;
-    std::cout << Fixed::max(a, b) << std::endl;
+    Point a(-5, -2);
+    Point b(-7, -3);
+    Point c(-2, -4);
+    Point to_find(-5, -3);
+    if (bsp(a, b, c, to_find) == true)
+    {
+        std::cout << "It's inside the triangle" << std::endl;
+    }
+    else 
+    {
+        std::cout << "It's outside the triangle" << std::endl;
+    }
     return 0;
 }

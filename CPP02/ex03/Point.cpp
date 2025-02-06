@@ -23,8 +23,3 @@ const Fixed& Point::Y() const
 {
     return y;
 }
-
-float area(Point const a, Point const b, Point const c)
-{
-    return (() + () + ()/2);
-}

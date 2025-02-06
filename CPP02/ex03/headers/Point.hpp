@@ -17,5 +17,5 @@ class Point
         const Fixed& Y() const;
 };
 
-float area(Point const a, Point const b, Point const c);
+float area_calc(Point const a, Point const b, Point const c);
 bool  bsp(Point const a, Point const b, Point const c, Point const point);
