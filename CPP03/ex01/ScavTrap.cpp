@@ -3,9 +3,9 @@
 
 ScavTrap::ScavTrap(std::string str) : ClapTrap(str)
 {
-    this->attack_damage = 20;
     this->hit_points = 100;
     this->energy_points = 50;
+    this->attack_damage = 20;
     std::cout << "ScavTrap constructor called!" << std::endl;
 }
 
@@ -40,7 +40,7 @@ void ScavTrap::attack(const std::string& target)
     }
     else
     {
-        std::cout << "ScavTrap " << this->name << " attacks " << target << ", causing " << this->attack_damage << " points of damage!" << std::endl;
+        std::cout << "ScavTrap " << this->name << " attacks " << target << "differently than ClapTrap!" << std::endl;
         this->energy_points--;
     }
 }

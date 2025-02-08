@@ -6,8 +6,8 @@ int main()
 
     obj.showVitals();
     obj.attack("Sauron");
-    obj.takeDamage(11);
-    obj.beRepaired(1);
+    obj.takeDamage(5);
+    obj.beRepaired(2);
     obj.showVitals();
     return 0;
 }
