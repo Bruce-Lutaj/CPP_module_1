@@ -8,7 +8,9 @@ RM = rm -f
 
 SRC = 	main.cpp \
 		ClapTrap.cpp \
-		FragTrap.cpp
+		FragTrap.cpp \
+		ScavTrap.cpp \
+		DiamondTrap.cpp
 		
 all: $(NAME)
 
