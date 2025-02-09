@@ -2,7 +2,7 @@ NAME = Exe
 
 CC = c++
 HEADERS = headers 
-FLAGS = -Wall -Wextra -Werror -g -I$(HEADERS) -std=c++98
+FLAGS = -Wall -Wextra -Werror -Wshadow -g -I$(HEADERS) -std=c++98
 
 RM = rm -f
 

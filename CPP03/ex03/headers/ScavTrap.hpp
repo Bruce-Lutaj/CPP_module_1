@@ -14,6 +14,4 @@ class ScavTrap : virtual public ClapTrap
         void guardGate();
 };
 
-
-
 #endif

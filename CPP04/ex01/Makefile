@@ -10,8 +10,7 @@ SRC = 	main.cpp \
 		Animal.cpp \
 		Dog.cpp \
 		Cat.cpp \
-		WrongAnimal.cpp \
-		WrongCat.cpp
+		Brain.cpp
 		
 all: $(NAME)
 
