@@ -19,7 +19,8 @@ int main()
     std::cout << "\nDynamic allocation test\n" << std::endl;
     Animal *jojo = new Dog();
     delete jojo;
-    std::cout << "\nProgram exiting\n" <<std::endl; 
+    std::cout << "\nProgram exiting\n" <<std::endl;
+        
     return 0;
 }
 
