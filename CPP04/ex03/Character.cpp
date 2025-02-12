@@ -64,7 +64,7 @@ Character::~Character()
             delete materia[i];
         }
     }
-    void clearUnequiped();
+    clearUnequiped();
 };
 
 std::string const& Character::getName() const
@@ -120,6 +120,7 @@ void Character::clearUnequiped()
         }
 
     }
+    n_unequiped = 0;
 }
 
 void Character::use(int idx, ICharacter& target)
