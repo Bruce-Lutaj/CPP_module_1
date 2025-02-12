@@ -2,6 +2,7 @@
 
 Animal::Animal()
 {
+    this->type = "";
     std::cout << "Animal constructor called" << std::endl;
 }
 
@@ -31,7 +32,7 @@ void Animal::makeSound() const
 
 std::string Animal::getType() const
 {
-    if (type == "")
+    if (this->type == "")
     {
         return ("Animal");
     }

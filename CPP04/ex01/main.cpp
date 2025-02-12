@@ -4,22 +4,40 @@
 
 int main()
 {
-    std::cout << "Creating basic\n" << std::endl;
-    Dog basic;
-    std::cout << "\nUsing copy constructor\n" << std::endl;
-    Dog a(basic);
-    {
-        std::cout << "\nCreating tmp\n" << std::endl;
-        Dog tmp = basic;
-        std::cout << "\nDestroying tmp\n" << std::endl;
-    }
-    std::cout << "\nTesting basic\n" << std::endl;
-    basic.makeSound();
+    std::cout << "Subject tests\n" << std::endl;
+    const Animal* i = new Dog();
+    const Animal* j = new Cat();
 
-    std::cout << "\nDynamic allocation test\n" << std::endl;
-    Animal *jojo = new Dog();
-    delete jojo;
-    std::cout << "\nProgram exiting\n" <<std::endl; 
+    delete i;
+    delete j;
+    std::cout << "----------------------\n" << std::endl;
+    
+    std::cout << "Testing deep copy\n" << std::endl;
+    Dog official;
+    {
+        std::cout << "\nCreating copy\n" << std::endl;
+        Dog copy = official;
+        std::cout << "\nDestroying copy\n" << std::endl;
+    }
+    std::cout << "\nTesting polymorphed function\n" << std::endl;
+    official.makeSound(); 
+    std::cout << "Creating array of Animal\n" << std::endl;
+    const Animal* array[10];
+    for (int idx = 0; idx < 10; idx++)
+    {
+        if (idx % 2 == 0)
+        {
+            array[idx] = new Dog();
+        }
+        else
+        {
+            array[idx] = new Cat();            
+        }
+    }
+    for (int idx = 0; idx < 10; idx++)
+    {
+        delete array[idx];
+    }
     return 0;
 }
 
