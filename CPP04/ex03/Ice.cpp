@@ -1,24 +1,22 @@
 #include "headers/Ice.hpp"
+#include "headers/AMateria.hpp"
 
 Ice::Ice() : AMateria("ice")
 {
 }
 
-Ice::Ice(Ice const & obj) : AMateria(obj)
+Ice::Ice(Ice const &other) : AMateria(other.getType())
 {
+}
+
+Ice& Ice::operator=(Ice const &other)
+{
+    this->type = other.type;
+    return *this;
 }
 
 Ice::~Ice()
 {
-}
-
-Ice& Ice::operator=(Ice const &obj)
-{
-    if (this != &obj)
-    {
-        AMateria::operator=(obj);
-    }
-    return *this;
 }
 
 AMateria* Ice::clone() const
@@ -30,3 +28,8 @@ void Ice::use(ICharacter& target)
 {
     std::cout << "* shoots an ice bolt at " << target.getName() << " *" << std::endl;
 }
+
+std::string const& Ice::getType() const
+{
+    return this->type;
+};
