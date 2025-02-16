@@ -5,11 +5,12 @@ int main()
     try
     {
         Bureaucrat obj("Franco", 2);
-        std::cout << obj;
+        Bureaucrat copy(obj);
+        std::cout << copy;
         std::cout << "Increasing grade!" << std::endl;
-        obj.increaseGrade();
-        std::cout << obj.getName() << std::endl;
-        std::cout << obj.getGrade() << std::endl;
+        copy.increaseGrade();
+        std::cout << copy.getName() << std::endl;
+        std::cout << copy.getGrade() << std::endl;
     }
     catch (const Bureaucrat::GradeTooHighException& e) 
     {

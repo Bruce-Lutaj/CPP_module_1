@@ -1,13 +1,18 @@
 #include "headers/Bureaucrat.hpp"
-#include <stdexcept>
+#include "headers/Form.hpp"
+#include <exception>
+#include <iomanip>
+#include <iostream>
+#include <string>
+#include <exception>
+
+class Form;
 
 std::ostream& operator<<(std::ostream& os, const Bureaucrat& Bureaucrat)
 {
     os << Bureaucrat.getName() << ", bureaucrat grade " << Bureaucrat.getGrade() << std::endl;
     return os;
 }
-
-Bureaucrat::Bureaucrat() {}
 
 Bureaucrat::Bureaucrat(std::string _name, int _grade) : name(_name)
 {
@@ -20,19 +25,22 @@ Bureaucrat::Bureaucrat(std::string _name, int _grade) : name(_name)
         throw GradeTooLowException();
     }
     this->grade = _grade;
+};
+
+Bureaucrat::Bureaucrat(Bureaucrat const &other) : name(other.name)
+{
+    this->grade = other.grade;
 }
-
-
 
 std::string Bureaucrat::getName() const
 {
     return this->name;
-}
+};
 
 int Bureaucrat::getGrade() const
 {
     return this->grade;
-}
+};
 
 void Bureaucrat::increaseGrade()
 {
@@ -50,6 +58,18 @@ void Bureaucrat::decreaseGrade()
         throw GradeTooLowException();
     }
     this->grade += 1;
+}
+
+void Bureaucrat::signForm(Form& form)
+{
+    if (form.beSigned(*this) == 1)
+    {
+        std::cout << this->name << " signed " << form.getName() << std::endl;
+    }
+    else 
+    {
+        std::cout << this->name << " couldn't sign " << form.getName() << " beacuse the grade was insufficient" << std::endl;
+    }
 }
 
 Bureaucrat::~Bureaucrat() {}
