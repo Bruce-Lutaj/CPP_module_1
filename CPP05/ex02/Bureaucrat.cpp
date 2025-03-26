@@ -1,4 +1,5 @@
-#include "Bureaucrat.hpp"
+#include "headers/Bureaucrat.hpp"
+#include "headers/AForm.hpp"
 
 std::ostream& operator<<(std::ostream& os, const Bureaucrat& Bureaucrat)
 {
@@ -50,6 +51,14 @@ void Bureaucrat::decreaseGrade()
         throw GradeTooLowException();
     }
     this->grade += 1;
+}
+
+void Bureaucrat::signForm(AForm& form)
+{
+    if (form.beSigned(*this) == 1)
+    {
+        std::cout << this->name << " signed " << form.getName() << std::endl;
+    }
 }
 
 Bureaucrat::~Bureaucrat() {}

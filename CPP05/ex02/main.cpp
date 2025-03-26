@@ -1,12 +1,12 @@
 #include "headers/Bureaucrat.hpp"
-#include "headers/Form.hpp"
+#include "headers/AForm.hpp"
 
 int main()
 {
     try
     {
         Bureaucrat Buro("Franco", 50);
-        Form       Paper("Document", 150, 50);
+        AForm       Paper("Document", 150, 50);
 
         std::cout << Buro;
         std::cout << Paper;
@@ -15,7 +15,7 @@ int main()
         {
             Buro.signForm(Paper);
         }
-        catch (const Form::GradeTooLowException& excpetionForm)
+        catch (const AForm::GradeTooLowException& excpetionForm)
         {
             std::cerr << excpetionForm.what() << std::endl;
             if (!Paper.getIs_signed())
@@ -33,11 +33,11 @@ int main()
     {
         std::cerr << exceptionBuro.what() << std::endl;
     }
-    catch (const Form::GradeTooHighException& excpetionForm)
+    catch (const AForm::GradeTooHighException& excpetionForm)
     {
         std::cerr << excpetionForm.what() << std::endl;
     }
-    catch (const Form::GradeTooLowException& excpetionForm)
+    catch (const AForm::GradeTooLowException& excpetionForm)
     {
         std::cerr << excpetionForm.what() << std::endl;
     }

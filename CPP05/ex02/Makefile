@@ -8,7 +8,7 @@ RM = rm -f
 
 SRC = 	main.cpp      \
 		Bureaucrat.cpp \
-		Form.cpp	  	
+		AForm.cpp	  	
 		
 all: $(NAME)
 

@@ -1,10 +1,13 @@
 #ifndef BURECRAUT_HPP
 #define BURECRAUT_HPP
 
+#include <exception>
 #include <iomanip>
 #include <iostream>
 #include <string>
 #include <exception>
+
+class AForm;
 
 class Bureaucrat
 {
@@ -37,6 +40,7 @@ class Bureaucrat
         int getGrade() const;
         void increaseGrade();
         void decreaseGrade();
+        void signForm(AForm& form);
 };
 
 std::ostream& operator<<(std::ostream& os, const Bureaucrat& Bureaucrat);

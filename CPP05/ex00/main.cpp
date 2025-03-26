@@ -9,15 +9,20 @@ int main()
         std::cout << copy;
         std::cout << "Increasing grade!" << std::endl;
         copy.increaseGrade();
-        std::cout << copy.getName() << std::endl;
-        std::cout << copy.getGrade() << std::endl;
+        // std::cout << "Increasing grade!" << std::endl;
+        // copy.increaseGrade();
+        std::cout << "Name: " << copy.getName() << std::endl;
+        std::cout << "Grade: " << copy.getGrade() << std::endl;
     }
-    catch (const Bureaucrat::GradeTooHighException& e) 
+    catch (const Bureaucrat::GradeTooHighException& exceptionBuro) 
     {
-        std::cerr << Bureaucrat::GradeTooHighException().what() << std::endl;
+        std::cerr << exceptionBuro.what() << std::endl;
+        return 1;
     }
-    catch (const Bureaucrat::GradeTooLowException& e)
+    catch (const Bureaucrat::GradeTooLowException& exceptionBuro)
     {
-        std::cerr << Bureaucrat::GradeTooLowException().what() << std::endl;
+        std::cerr << exceptionBuro.what() << std::endl;
+        return 1;
     }
+    return 0;
 }
