@@ -37,7 +37,7 @@ class AForm
         int get_gradeToSign() const;
         int get_gradeToExec() const;
         int beSigned(Bureaucrat& Buro);
-        virtual int execute(Bureaucrat const& executor) const = 0;
+        virtual int execute(Bureaucrat const& executor) = 0;
 };
 
 std::ostream& operator<<(std::ostream& os, const AForm& AForm);

@@ -8,7 +8,36 @@ ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm& other)
 
 ShrubberyCreationForm::~ShrubberyCreationForm() {}
 
+void ShrubberyCreationForm::draw_tree(std::ofstream& os)
+{
+    os <<"   ^   "<< std::endl;
+    os <<"  ^^^  "<< std::endl;
+    os <<" ^^^^^ "<< std::endl;
+    os <<"^^^^^^^"<< std::endl;
+    os <<"  |||  "<< std::endl;
+    os <<"  |||  "<< std::endl;
+}
+
 int ShrubberyCreationForm::execute(Bureaucrat const& executor)
 {
-    
+    if (this->getIs_signed() && executor.getGrade() <= this->get_gradeToExec())
+    {
+        std::ofstream new_file;
+        new_file.open(this->getName());
+        if(!new_file.is_open())
+        {
+            std::cerr << "Error opening new file" << std::endl;
+            return 1;
+        }
+        draw_tree(new_file);
+        new_file.close();
+        return 0;
+    }
+    else
+    {
+        throw GradeTooLowException();
+        return 1;
+    }
+    return 1;
 }
+

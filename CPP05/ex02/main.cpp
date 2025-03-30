@@ -1,12 +1,13 @@
 #include "headers/Bureaucrat.hpp"
 #include "headers/AForm.hpp"
+#include "headers/ShrubberyCreationForm.hpp"
 
 int main()
 {
     try
     {
-        Bureaucrat Buro("Franco", 50);
-        AForm       Paper("Document", 150, 50);
+        Bureaucrat                  Buro("Franco", 50);
+        ShrubberyCreationForm       Paper("Document");
 
         std::cout << Buro;
         std::cout << Paper;
@@ -22,8 +23,8 @@ int main()
             {
                 std::cout << Buro.getName() << " couldn't sign " << Paper.getName() << " beacuse the grade was insufficient" << std::endl;
             }
-            
         }
+        std::cout << Buro.getName() << " is trying to execute it." << std::endl;
     }
     catch (const Bureaucrat::GradeTooHighException& exceptionBuro) 
     {

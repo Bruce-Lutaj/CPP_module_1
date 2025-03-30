@@ -3,6 +3,7 @@
 
 #include "AForm.hpp"
 #include "Bureaucrat.hpp"
+#include <fstream>
 
 class ShrubberyCreationForm : public AForm
 {
@@ -13,7 +14,8 @@ class ShrubberyCreationForm : public AForm
         ShrubberyCreationForm(std::string target);
         ShrubberyCreationForm(const ShrubberyCreationForm& other);
         ~ShrubberyCreationForm();
-        int execute(Bureaucrat const& executor);
+        virtual int execute(Bureaucrat const& executor);
+        void draw_tree(std::ofstream& os);
 };
 
 #endif
