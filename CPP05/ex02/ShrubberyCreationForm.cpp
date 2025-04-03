@@ -8,7 +8,7 @@ ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm& other)
 
 ShrubberyCreationForm::~ShrubberyCreationForm() {}
 
-void ShrubberyCreationForm::draw_tree(std::ofstream& os)
+void ShrubberyCreationForm::draw_tree(std::ofstream& os) const
 {
     os <<"   ^   "<< std::endl;
     os <<"  ^^^  "<< std::endl;
@@ -18,12 +18,12 @@ void ShrubberyCreationForm::draw_tree(std::ofstream& os)
     os <<"  |||  "<< std::endl;
 }
 
-int ShrubberyCreationForm::execute(Bureaucrat const& executor)
+int ShrubberyCreationForm::execute(Bureaucrat const& executor) const
 {
     if (this->getIs_signed() && executor.getGrade() <= this->get_gradeToExec())
     {
         std::ofstream new_file;
-        new_file.open(this->getName());
+        new_file.open(this->getName().c_str());
         if(!new_file.is_open())
         {
             std::cerr << "Error opening new file" << std::endl;

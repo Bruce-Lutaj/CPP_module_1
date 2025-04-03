@@ -61,5 +61,18 @@ void Bureaucrat::signForm(AForm& form)
     }
 }
 
+void Bureaucrat::executeForm(AForm const& form) const
+{
+    if (!form.execute(*this))
+    {
+        std::cout << this->getName() << " executed " << form.getName() << std::endl;
+    }
+    else 
+    {
+        std::cerr << this->getName() << " could not execute" << std::endl; 
+    }
+}
+
+
 Bureaucrat::~Bureaucrat() {}
 

@@ -21,10 +21,18 @@ int main()
             std::cerr << excpetionForm.what() << std::endl;
             if (!Paper.getIs_signed())
             {
-                std::cout << Buro.getName() << " couldn't sign " << Paper.getName() << " beacuse the grade was insufficient" << std::endl;
+                std::cerr << Buro.getName() << " couldn't sign " << Paper.getName() << " beacuse the grade was insufficient" << std::endl;
             }
         }
         std::cout << Buro.getName() << " is trying to execute it." << std::endl;
+        try
+        {
+            Buro.executeForm(Paper);
+        }
+        catch (const AForm::GradeTooLowException& excpetionForm)
+        {
+            std::cerr << excpetionForm.what() << std::endl;
+        }
     }
     catch (const Bureaucrat::GradeTooHighException& exceptionBuro) 
     {

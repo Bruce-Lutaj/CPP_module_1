@@ -14,8 +14,8 @@ class ShrubberyCreationForm : public AForm
         ShrubberyCreationForm(std::string target);
         ShrubberyCreationForm(const ShrubberyCreationForm& other);
         ~ShrubberyCreationForm();
-        virtual int execute(Bureaucrat const& executor);
-        void draw_tree(std::ofstream& os);
+        virtual int execute(Bureaucrat const& executor) const;
+        void draw_tree(std::ofstream& os) const;
 };
 
 #endif
