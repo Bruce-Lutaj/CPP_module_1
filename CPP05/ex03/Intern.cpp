@@ -15,12 +15,24 @@ Intern& Intern::operator=(const Intern& other)
     return *this;
 }
 
-AForm* createShrubbery(std::string target) {return new ShrubberyCreationForm(target);}
-AForm* createRobotomy(std::string target) {return new RobotomyRequestForm(target);}
-AForm* createPresidential(std::string target) {return new PresidentialPardonForm(target);}
+AForm* Intern::createShrubbery(std::string target) {return new ShrubberyCreationForm(target);}
+AForm* Intern::createRobotomy(std::string target) {return new RobotomyRequestForm(target);}
+AForm* Intern::createPresidential(std::string target) {return new PresidentialPardonForm(target);}
 
 AForm* Intern::makeForm(std::string form, std::string target)
 {
-    void (AForm::*ptr[3])(std::string target) = {&createShrubbery(target), createRobotomy(target), createPresidential(target)};
+    AForm* (Intern::*ptr[3])(std::string target) = {&Intern::createShrubbery, &Intern::createRobotomy, &Intern::createPresidential};
+    std::string form_type[3] = {"shrubbery creation", "robotomy request", "presidential pardon"};
+    
+    for (int i = 0; i < 3; i++)
+    {
+        if (form_type[i] == form)
+        {
+            std::cout << "Intern creates " << form_type[i] << std::endl;
+            return (this->*(ptr[i]))(target);
+        }
+    }
+    std::cout << "Type of form doesn exist" << std::endl;
+    return NULL;
 }
 

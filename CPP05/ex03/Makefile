@@ -7,11 +7,12 @@ FLAGS = -Wall -Wextra -Werror -g -I$(HEADERS) -std=c++98
 RM = rm -f
 
 SRC = 	main.cpp				\
-		AForm.cpp	    	     \
-		Bureaucrat.cpp 		      \
-		RobotomyRequestForm.cpp    \
-		ShrubberyCreationForm.cpp   \
-		PresidentialPardonForm.cpp   \
+		AForm.cpp				 \
+		Intern.cpp	    	      \
+		Bureaucrat.cpp 		       \
+		RobotomyRequestForm.cpp     \
+		ShrubberyCreationForm.cpp    \
+		PresidentialPardonForm.cpp    \
 		
 all: $(NAME)
 

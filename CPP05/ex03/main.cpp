@@ -1,38 +1,29 @@
 #include "headers/Bureaucrat.hpp"
 #include "headers/AForm.hpp"
 #include "headers/ShrubberyCreationForm.hpp"
+#include "headers/PresidentialPardonForm.hpp"
+#include "headers/RobotomyRequestForm.hpp"
+#include "headers/Intern.hpp"
 
 int main()
 {
     try
     {
-        Bureaucrat                  Buro("Franco", 1);
-        ShrubberyCreationForm       Document("Home");
-
-        std::cout << Buro;
-        std::cout << Document;
-        std::cout << Buro.getName() << " is trying to sign it." << std::endl;
-        try 
+        Bureaucrat  Buro("Johnny", 1);
+        Intern      someRandomIntern;
+        AForm*      rrf;
+        
+        rrf = someRandomIntern.makeForm("robotomy request", "Bender");
+        if (rrf)
         {
-            Buro.signForm(Document);
+            std::cout << rrf->getName() << std::endl;
         }
-        catch (const AForm::GradeTooLowException& excpetionForm)
+        else 
         {
-            std::cerr << excpetionForm.what() << std::endl;
-            if (!Document.getIs_signed()) 
-            {
-                std::cerr << Buro.getName() << " couldn't sign " << Document.getName() << " beacuse the grade was insufficient" << std::endl;
-            }
+            delete rrf;
+            return 1;
         }
-        std::cout << Buro.getName() << " is trying to execute it." << std::endl;
-        try
-        {
-            Buro.executeForm(Document);
-        }
-        catch (const AForm::GradeTooLowException& excpetionForm)
-        {
-            std::cerr << excpetionForm.what() << std::endl;
-        }
+        delete rrf;
     }
     catch (const std::exception& exception)
     {
